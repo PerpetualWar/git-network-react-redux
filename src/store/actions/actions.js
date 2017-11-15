@@ -32,13 +32,9 @@ export const addReposAsync = user => async dispatch => {
   dispatch(addRepos(repoObj));
 };
 export const addCommitsAsync = (username, reponame) => async dispatch => {
-  try {
     const repoObj = await fetchRepos(username);
     const commitsObj = await fetchCommits(username, reponame);
     const [repo] = repoObj.data.filter(repo => repo.name === reponame); //pull out needed repo from array of repos
     const repoid = repo.id; //pull repoid from repo itself
     dispatch(addCommits(commitsObj, repoid));
-  } catch (e) {
-    throw new Error(e);
-  }
 };
