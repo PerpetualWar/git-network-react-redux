@@ -1,4 +1,3 @@
-// import 'babel-polyfill';
 import axios from 'axios';
 
 export const fetchUser = async username => {

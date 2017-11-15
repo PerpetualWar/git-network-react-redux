@@ -7,7 +7,6 @@ export const addUser = ({ data, status }) => {
     status
   }
 };
-
 export const addRepos = ({ data, status }) => {
   return {
     type: 'ADD_REPOS',
@@ -15,7 +14,6 @@ export const addRepos = ({ data, status }) => {
     status
   }
 };
-
 export const addCommits = ({ data, status }, repoid) => {
   return {
     type: 'ADD_COMMITS',
@@ -29,12 +27,10 @@ export const addUserAsync = user => async dispatch => {
   const userObj = await fetchUser(user);
   dispatch(addUser(userObj));
 };
-
 export const addReposAsync = user => async dispatch => {
   const repoObj = await fetchRepos(user);
   dispatch(addRepos(repoObj));
 };
-
 export const addCommitsAsync = (username, reponame) => async dispatch => {
   try {
     const repoObj = await fetchRepos(username);
